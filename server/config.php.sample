@@ -1,0 +1,7 @@
+<?php
+
+// Add your openweathermap key here
+global $weather_api_key;
+$weather_api_key = "";
+
+?>
