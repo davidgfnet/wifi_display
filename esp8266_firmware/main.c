@@ -87,13 +87,11 @@ void ICACHE_FLASH_ATTR screen_update(unsigned char screen_id) {
 void ICACHE_FLASH_ATTR data_received( void *arg, char *pdata, unsigned short len) {
 	struct espconn *conn = arg;
 	
-	os_printf("%s: %d\n", __FUNCTION__, len);
 	while (len--) {
 		uart_tx_one_char(*pdata++, 0);
 		if (!(len & 4095))
 			system_soft_wdt_feed();
 	}
-	os_printf("%s: %d --\n", __FUNCTION__, len);
 }
 
 void nullwr(char c) {}
