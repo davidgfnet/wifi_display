@@ -100,12 +100,12 @@ function renderBMP($id, $numc, $maxwidth, $maxheight) {
 	// Apply max sizes
 	$width = $data["width"];
 	$height = $data["height"];
-	if ($width > $maxwidth) {
+	if ($width > $maxwidth && $maxwidth>0) {
 		$ar = $width/$height;
 		$width = $maxwidth;
 		$height = $width / $ar;
 	}
-	if ($height > $maxheight) {
+	if ($height > $maxheight && $maxheight>0) {
 		$ar = $width/$height;
 		$height = $maxheight;
 		$width = $height * $ar;
