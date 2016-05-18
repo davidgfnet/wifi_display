@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="800"
+   height="600"
+   viewBox="0 0 800.00001 600.00001"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="dns_error.svg"
+   inkscape:export-filename="/home/david/little_projects/epd/wifi_display/media/dns_error.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="117.85714"
+     inkscape:cy="254.74408"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1007"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-452.36216)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:48.63484955px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="401.74347"
+       y="869.24561"
+       id="text4214"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="401.74347"
+         y="869.24561"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:70px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold';text-align:center;text-anchor:middle"
+         id="tspan4256">DNS error</tspan><tspan
+         sodipodi:role="line"
+         x="401.74347"
+         y="935.44989"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:center;text-anchor:middle;font-size:45px"
+         id="tspan4254">Could not resolve domain name</tspan></text>
+    <g
+       id="g4249"
+       transform="matrix(0.46321214,0,0,0.46321214,275.00854,543.08499)">
+      <g
+         id="g4167">
+        <g
+           id="g4169">
+          <g
+             id="g4171">
+            <polygon
+               id="polygon4173"
+               points="116.353,267.542 97.629,194.202 69.048,194.202 49.742,267.542 28.775,194.202 0,194.202 35.419,306.111 64.238,306.111 83.155,234.108 102.504,306.111 130.978,306.111 166.979,194.202 137.708,194.202 "
+               style="fill:#010002" />
+            <polygon
+               id="polygon4175"
+               points="203.24,306.111 232.08,306.111 251.019,234.108 270.411,306.111 298.842,306.111 334.843,194.202 305.636,194.202 284.173,267.542 265.472,194.202 236.912,194.202 217.584,267.542 196.531,194.202 167.756,194.202 "
+               style="fill:#010002" />
+            <polygon
+               id="polygon4177"
+               points="364.395,194.202 335.577,194.202 371.082,306.111 399.879,306.111 418.818,234.108 438.146,306.111 466.662,306.111 502.664,194.202 473.392,194.202 451.973,267.542 433.292,194.202 404.668,194.202 385.34,267.542 "
+               style="fill:#010002" />
+            <path
+               id="path4179"
+               d="m 251.321,35.764 c -86.564,0 -161.026,51.166 -195.28,124.765 l 390.582,0 C 412.326,86.93 337.885,35.764 251.321,35.764 Z"
+               style="fill:#010002"
+               inkscape:connector-curvature="0" />
+            <path
+               id="path4181"
+               d="m 251.321,466.9 c 86.585,0 160.961,-51.144 195.28,-124.765 l -390.517,0 C 90.338,415.734 164.758,466.9 251.321,466.9 Z"
+               style="fill:#010002"
+               inkscape:connector-curvature="0" />
+          </g>
+        </g>
+        <g
+           id="g4183" />
+        <g
+           id="g4185" />
+        <g
+           id="g4187" />
+        <g
+           id="g4189" />
+        <g
+           id="g4191" />
+        <g
+           id="g4193" />
+        <g
+           id="g4195" />
+        <g
+           id="g4197" />
+        <g
+           id="g4199" />
+        <g
+           id="g4201" />
+        <g
+           id="g4203" />
+        <g
+           id="g4205" />
+        <g
+           id="g4207" />
+        <g
+           id="g4209" />
+        <g
+           id="g4211" />
+      </g>
+      <g
+         id="g4213" />
+      <g
+         id="g4215" />
+      <g
+         id="g4217" />
+      <g
+         id="g4219" />
+      <g
+         id="g4221" />
+      <g
+         id="g4223" />
+      <g
+         id="g4225" />
+      <g
+         id="g4227" />
+      <g
+         id="g4229" />
+      <g
+         id="g4231" />
+      <g
+         id="g4233" />
+      <g
+         id="g4235" />
+      <g
+         id="g4237" />
+      <g
+         id="g4239" />
+      <g
+         id="g4241" />
+    </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4246"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion4248"><rect
+           id="rect4250"
+           width="967.14288"
+           height="240"
+           x="-125.71429"
+           y="351.42856" /></flowRegion><flowPara
+         id="flowPara4252" /></flowRoot>  </g>
+</svg>

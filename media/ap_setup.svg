@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="800"
+   height="600"
+   viewBox="0 0 800.00001 600.00001"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="ap_setup.svg"
+   inkscape:export-filename="/home/david/projects/wifi_display/media/ap_setup.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="670.57637"
+     inkscape:cy="320.45836"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1600"
+     inkscape:window-height="844"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-452.36216)">
+    <g
+       id="g4189"
+       transform="matrix(0.29048905,0,0,0.29048905,326.95903,498.61922)">
+      <g
+         id="g4137">
+        <g
+           id="g4139">
+          <g
+             id="g4141">
+            <path
+               id="path4143"
+               d="m 355.047,190.356 c 17.11,-19.249 25.666,-44.916 25.666,-70.581 0,-25.665 -8.555,-51.332 -25.666,-70.581 l -34.221,27.805 c 8.555,8.555 17.11,23.527 17.11,42.777 0,19.25 -8.555,34.221 -17.11,42.777 l 34.221,27.803 0,0 z"
+               inkscape:connector-curvature="0"
+               style="fill:#000000" />
+            <path
+               id="path4145"
+               d="m 183.941,162.551 c -8.555,-8.555 -17.11,-23.527 -17.11,-42.777 0,-19.25 8.555,-34.221 17.11,-42.777 L 149.72,49.192 c -17.11,19.249 -25.666,44.916 -25.666,70.581 0,25.665 8.555,51.332 25.666,70.581 l 34.221,-27.803 0,0 z"
+               inkscape:connector-curvature="0"
+               style="fill:#000000" />
+            <path
+               id="path4147"
+               d="m 295.16,119.775 c 0,-23.527 -19.249,-42.777 -42.777,-42.777 -23.528,0 -42.777,19.249 -42.777,42.777 0,14.972 8.555,29.944 21.388,36.36 l -128.33,348.63 44.916,0 0,-2.139 104.803,-91.97 104.803,91.97 0,2.139 44.916,0 -128.33,-348.63 c 12.833,-6.417 21.388,-21.388 21.388,-36.36 z m -115.496,297.297 19.249,-53.471 21.388,17.11 -40.637,36.361 z m 145.44,0 -109.081,-96.247 36.36,-100.525 72.721,196.772 z"
+               inkscape:connector-curvature="0"
+               style="fill:#000000" />
+            <path
+               id="path4149"
+               d="m 419.212,0 -32.083,27.805 c 23.527,29.944 36.36,59.887 36.36,91.97 0,32.083 -12.833,62.026 -38.499,94.109 l 32.082,27.805 c 34.221,-40.638 49.193,-81.275 49.193,-121.914 0,-40.639 -14.97,-81.276 -47.053,-119.775 l 0,0 z"
+               inkscape:connector-curvature="0"
+               style="fill:#000000" />
+            <path
+               id="path4151"
+               d="m 81.277,119.775 c 0,-32.082 12.833,-62.026 38.499,-94.109 L 85.554,0 C 53.472,38.499 38.5,79.137 38.5,119.775 c 0,40.638 14.972,81.275 47.054,119.775 l 32.082,-27.805 C 94.11,181.801 81.277,151.857 81.277,119.775 Z"
+               inkscape:connector-curvature="0"
+               style="fill:#000000" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="g4153" />
+      <g
+         id="g4155" />
+      <g
+         id="g4157" />
+      <g
+         id="g4159" />
+      <g
+         id="g4161" />
+      <g
+         id="g4163" />
+      <g
+         id="g4165" />
+      <g
+         id="g4167" />
+      <g
+         id="g4169" />
+      <g
+         id="g4171" />
+      <g
+         id="g4173" />
+      <g
+         id="g4175" />
+      <g
+         id="g4177" />
+      <g
+         id="g4179" />
+      <g
+         id="g4181" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:48.63484955px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="400.31488"
+       y="713.53131"
+       id="text4214"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4216"
+         x="400.31488"
+         y="713.53131"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:center;text-anchor:middle">Connect to access point</tspan><tspan
+         sodipodi:role="line"
+         x="400.31488"
+         y="767.74487"
+         id="tspan4218"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold';text-align:center;text-anchor:middle">EINKWIFI</tspan></text>
+    <g
+       id="g4262"
+       transform="matrix(0.27086093,0,0,0.27086093,68.285379,870.89386)">
+      <g
+         id="XMLID_107_">
+        <path
+           d="m 224.949,37.499 -192.41,0 C 14.57,37.499 0,52.07 0,70.049 l 0,352.514 c 0,17.978 14.57,32.55 32.539,32.55 l 192.41,0 c 17.972,0 32.543,-14.571 32.543,-32.55 l 0,-352.514 c 0,-17.979 -14.571,-32.55 -32.543,-32.55 z m -96.203,399.214 c -11.359,0 -20.558,-9.205 -20.558,-20.557 0,-11.352 9.198,-20.557 20.558,-20.557 11.344,0 20.555,9.205 20.555,20.557 0,11.352 -9.211,20.557 -20.555,20.557 z m 92.35,-61.956 c 0,3.744 -3.042,6.787 -6.795,6.787 l -171.11,0 c -3.754,0 -6.797,-3.043 -6.797,-6.787 l 0,-295.85 c 0,-3.745 3.043,-6.787 6.797,-6.787 l 171.109,0 c 3.753,0 6.795,3.042 6.795,6.787 l 0,295.85 z"
+           id="XMLID_111_"
+           inkscape:connector-curvature="0"
+           style="fill:#000000" />
+        <path
+           d="m 429.395,80.488 c -6.762,-6.763 -17.714,-6.763 -24.476,0 -6.765,6.762 -6.765,17.716 0,24.477 70.778,70.797 70.778,185.978 0,256.774 -6.765,6.762 -6.765,17.716 0,24.478 3.381,3.381 7.81,5.071 12.237,5.071 4.43,0 8.858,-1.69 12.238,-5.071 84.29,-84.286 84.29,-221.443 10e-4,-305.729 z"
+           id="XMLID_110_"
+           inkscape:connector-curvature="0"
+           style="fill:#000000" />
+        <path
+           d="m 378.917,130.981 c -6.761,-6.762 -17.714,-6.762 -24.476,0 -6.762,6.754 -6.762,17.718 0,24.479 42.936,42.946 42.936,112.839 0,155.786 -6.762,6.762 -6.762,17.725 0,24.478 3.381,3.381 7.809,5.071 12.239,5.071 4.428,0 8.856,-1.69 12.236,-5.071 56.448,-56.445 56.448,-148.296 10e-4,-204.743 z"
+           id="XMLID_109_"
+           inkscape:connector-curvature="0"
+           style="fill:#000000" />
+        <path
+           d="m 303.457,181.959 c -6.762,6.752 -6.762,17.716 0,24.477 14.824,14.843 14.824,38.99 0,53.832 -6.762,6.764 -6.762,17.726 0,24.479 3.381,3.381 7.809,5.07 12.238,5.07 4.428,0 8.857,-1.689 12.24,-5.07 28.33,-28.341 28.33,-74.449 0,-102.789 -6.764,-6.762 -17.716,-6.762 -24.478,0.001 z"
+           id="XMLID_108_"
+           inkscape:connector-curvature="0"
+           style="fill:#000000" />
+      </g>
+      <g
+         id="g4226" />
+      <g
+         id="g4228" />
+      <g
+         id="g4230" />
+      <g
+         id="g4232" />
+      <g
+         id="g4234" />
+      <g
+         id="g4236" />
+      <g
+         id="g4238" />
+      <g
+         id="g4240" />
+      <g
+         id="g4242" />
+      <g
+         id="g4244" />
+      <g
+         id="g4246" />
+      <g
+         id="g4248" />
+      <g
+         id="g4250" />
+      <g
+         id="g4252" />
+      <g
+         id="g4254" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40.88015366px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="292.85962"
+       y="916.19696"
+       id="text4214-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="292.85962"
+         y="916.19696"
+         id="tspan4218-3"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;text-anchor:start"><tspan
+   style="font-size:35.08557892px"
+   id="tspan4319">Browse to:</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="292.85962"
+         y="965.82965"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;text-anchor:start"
+         id="tspan3384">http://192.168.4.1/</tspan></text>
+  </g>
+</svg>

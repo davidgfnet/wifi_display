@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="800"
+   height="600"
+   viewBox="0 0 800.00001 600.00001"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="connection_error.svg"
+   inkscape:export-filename="/home/david/little_projects/epd/wifi_display/media/connection_error.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.4053125"
+     inkscape:cx="91.136986"
+     inkscape:cy="-27.266349"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1007"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-452.36216)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:48.63484955px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="401.74347"
+       y="869.24561"
+       id="text4214"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="401.74347"
+         y="869.24561"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:70px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold';text-align:center;text-anchor:middle"
+         id="tspan4256">Connection error</tspan><tspan
+         sodipodi:role="line"
+         x="401.74347"
+         y="931.8269"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:center;text-anchor:middle"
+         id="tspan4254">Could not connect to the server</tspan></text>
+    <g
+       id="g4224"
+       transform="matrix(0.52125984,0,0,0.52125984,285.15025,546.08371)">
+      <g
+         id="g4180">
+        <g
+           id="g4182">
+          <path
+             id="path4184"
+             d="m 233.137,234.36 -30.939,30.94 -37.799,-37.8 30.939,-30.938 c 6.856,-6.855 6.856,-18.012 0,-24.867 -6.855,-6.856 -18.011,-6.856 -24.867,0 l -30.94,30.939 -15.539,-15.538 c -4.12,-4.122 -10.801,-4.121 -14.921,0 L 86.625,209.54 c -4.12,4.12 -4.12,10.801 0,14.921 l 3.35,3.351 -50.72,50.718 c -2.361,2.362 -3.465,5.702 -2.976,9.005 l 7.816,52.813 -41.005,41.005 c -4.12,4.119 -4.12,10.8 0,14.92 l 30.337,30.336 c 4.12,4.121 10.8,4.121 14.92,0 l 41.006,-41.006 52.813,7.817 c 3.303,0.488 6.644,-0.614 9.004,-2.977 l 50.719,-50.719 3.35,3.35 c 4.12,4.119 10.801,4.119 14.921,0 l 22.445,-22.447 c 4.121,-4.117 4.121,-10.801 0,-14.92 l -15.539,-15.539 30.939,-30.939 c 6.855,-6.856 6.855,-18.012 0,-24.868 -6.857,-6.856 -18.011,-6.856 -24.868,-10e-4 z"
+             inkscape:connector-curvature="0" />
+          <path
+             id="path4186"
+             d="M 426.609,33.428 396.273,3.089 c -4.119,-4.118 -10.801,-4.118 -14.92,0 l -41.006,41.007 -52.814,-7.817 c -3.303,-0.488 -6.643,0.615 -9.004,2.978 l -50.719,50.719 -3.35,-3.351 c -4.119,-4.119 -10.8,-4.121 -14.921,0 l -22.446,22.446 c -4.12,4.12 -4.12,10.8 0,14.921 l 118.613,118.613 c 4.119,4.119 10.801,4.119 14.922,0 l 22.445,-22.447 c 4.119,-4.12 4.119,-10.801 0,-14.92 l -3.35,-3.35 50.719,-50.72 c 2.361,-2.36 3.465,-5.699 2.977,-9.004 l -7.816,-52.812 41.006,-41.006 c 4.121,-4.119 4.121,-10.801 0,-14.918 z"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+      <g
+         id="g4188" />
+      <g
+         id="g4190" />
+      <g
+         id="g4192" />
+      <g
+         id="g4194" />
+      <g
+         id="g4196" />
+      <g
+         id="g4198" />
+      <g
+         id="g4200" />
+      <g
+         id="g4202" />
+      <g
+         id="g4204" />
+      <g
+         id="g4206" />
+      <g
+         id="g4208" />
+      <g
+         id="g4210" />
+      <g
+         id="g4212" />
+      <g
+         id="g4214" />
+      <g
+         id="g4216" />
+    </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4246"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion4248"><rect
+           id="rect4250"
+           width="967.14288"
+           height="240"
+           x="-125.71429"
+           y="351.42856" /></flowRegion><flowPara
+         id="flowPara4252" /></flowRoot>  </g>
+</svg>

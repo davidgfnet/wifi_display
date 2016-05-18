@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="800"
+   height="600"
+   viewBox="0 0 800.00001 600.00001"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="low_battery.svg"
+   inkscape:export-filename="/home/david/little_projects/epd/ereader/media/low_battery.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="117.85714"
+     inkscape:cy="257.60122"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1007"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-452.36216)">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4246"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion4248"><rect
+           id="rect4250"
+           width="967.14288"
+           height="240"
+           x="-125.71429"
+           y="351.42856" /></flowRegion><flowPara
+         id="flowPara4252" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:59.64034653px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="404.36285"
+       y="945.45819"
+       id="text4214"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="404.36285"
+         y="945.45819"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:73.57730103px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold';text-align:center;text-anchor:middle"
+         id="tspan4254">Charge me!</tspan></text>
+    <g
+       id="g4204"
+       transform="matrix(0.82526826,0,0,0.82526826,304.87334,558.77291)">
+      <g
+         id="g4159">
+        <path
+           id="path4161"
+           d="m 176.144,144.467 c -4.143,0 -7.5,3.358 -7.5,7.5 l 0,39.444 c 0,4.142 3.357,7.5 7.5,7.5 4.143,0 7.5,-3.358 7.5,-7.5 l 0,-39.444 c 0,-4.142 -3.357,-7.5 -7.5,-7.5 z"
+           inkscape:connector-curvature="0"
+           style="fill:#000000" />
+        <path
+           id="path4163"
+           d="m 176.144,202.472 c -4.143,0 -7.5,3.358 -7.5,7.5 l 0,2.701 c 0,4.142 3.357,7.5 7.5,7.5 4.143,0 7.5,-3.358 7.5,-7.5 l 0,-2.701 c 0,-4.143 -3.357,-7.5 -7.5,-7.5 z"
+           inkscape:connector-curvature="0"
+           style="fill:#000000" />
+        <path
+           id="path4165"
+           d="M 252.018,223.473 187.537,106.327 c -1.198,-2.177 -2.719,-3.924 -4.454,-5.187 l 0,-49.804 c 0,-12.335 -10.035,-22.371 -22.37,-22.371 l -10.186,0 0,-15.465 C 150.527,6.056 144.471,0 137.027,0 L 82.03,0 c -7.444,0 -13.5,6.056 -13.5,13.5 l 0,15.465 -10.184,0 C 46.01,28.965 35.974,39 35.974,51.336 l 0,216.316 c 0,12.334 10.036,22.369 22.372,22.369 l 102.366,0 c 12.335,0 22.37,-10.035 22.37,-22.369 l 0,-24.302 57.188,0 c 5.341,0 9.752,-2.281 12.103,-6.257 2.35,-3.977 2.221,-8.941 -0.355,-13.62 z M 83.53,15 l 51.997,0 0,13.965 -51.997,0 0,-13.965 z m 84.553,252.652 c 0,4.063 -3.307,7.369 -7.37,7.369 l -102.367,0 c -4.065,0 -7.372,-3.306 -7.372,-7.369 l 0,-216.316 c 0,-4.064 3.307,-7.371 7.372,-7.371 l 23.684,0 54.997,0 23.686,0 c 4.063,0 7.37,3.307 7.37,7.371 l 0,50.717 c -1.27,1.148 -2.398,2.579 -3.331,4.272 L 100.27,223.473 c -2.576,4.679 -2.705,9.643 -0.354,13.62 2.351,3.977 6.762,6.257 12.103,6.257 l 56.064,0 0,24.302 z M 114.708,228.35 175.084,118.662 c 0.166,0.011 0.331,0.025 0.499,0.025 0.53,0 1.048,-0.057 1.547,-0.161 l 60.451,109.824 -122.873,0 z"
+           inkscape:connector-curvature="0"
+           style="fill:#000000" />
+      </g>
+      <g
+         id="g4167" />
+      <g
+         id="g4169" />
+      <g
+         id="g4171" />
+      <g
+         id="g4173" />
+      <g
+         id="g4175" />
+      <g
+         id="g4177" />
+      <g
+         id="g4179" />
+      <g
+         id="g4181" />
+      <g
+         id="g4183" />
+      <g
+         id="g4185-5" />
+      <g
+         id="g4187" />
+      <g
+         id="g4189" />
+      <g
+         id="g4191-9" />
+      <g
+         id="g4193-4" />
+      <g
+         id="g4195-9" />
+    </g>
+  </g>
+</svg>
