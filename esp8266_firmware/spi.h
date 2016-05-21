@@ -50,10 +50,6 @@
 #define SPI_CLK_CNTDIV 2
 #define SPI_CLK_FREQ CPU_CLK_FREQ/(SPI_CLK_PREDIV*SPI_CLK_CNTDIV) // 80 / 20 = 4 MHz
 
-
-
-
-
 void spi_init(uint8 spi_no);
 void spi_mode(uint8 spi_no, uint8 spi_cpha,uint8 spi_cpol);
 void spi_init_gpio(uint8 spi_no, uint8 sysclk_as_spiclk);

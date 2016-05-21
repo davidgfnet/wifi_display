@@ -76,9 +76,7 @@ void ICACHE_FLASH_ATTR screen_update(unsigned char screen_id) {
 	delay_ms(150);
 
 	// Send the command through the UART
-	//uart_tx_one_char(screen_id, 0);
-	for (int i = 0; i < 10; i++)
-		spi_tx8(HSPI, screen_id);
+	spi_tx8(HSPI, screen_id);
 
 	// Wait around 4s for it to display the image properly
 	delay_ms(3500);
@@ -91,7 +89,6 @@ void ICACHE_FLASH_ATTR data_received( void *arg, char *pdata, unsigned short len
 	struct espconn *conn = arg;
 	
 	while (len--) {
-		//uart_tx_one_char(*pdata++, 0);
 		spi_tx8(HSPI, *pdata++);
 		if (!(len & 4095))
 			system_soft_wdt_feed();
@@ -104,7 +101,7 @@ void ICACHE_FLASH_ATTR tcp_connected(void *arg)
 {
 	struct espconn *conn = arg;
 	
-	//os_printf( "%s\n", __FUNCTION__ );
+	os_printf( "%s\n", __FUNCTION__ );
 	espconn_regist_recvcb(conn, data_received);
 
 	// Prepare screen!
@@ -113,7 +110,6 @@ void ICACHE_FLASH_ATTR tcp_connected(void *arg)
 	UART_ResetFifo(0);
 	power_gate_screen(1);
 	delay_ms(150);
-	//uart_tx_one_char(0x40, 0);
 	spi_tx8(HSPI, 0x40);
 
 	char buffer[256];
@@ -371,14 +367,10 @@ void ICACHE_FLASH_ATTR user_init( void ) {
 
 	// SPI setup! Ready to go!
 	spi_init(HSPI);
-	spi_mode(HSPI, 1, 0);
+	spi_mode(HSPI, 1, 1);
 	spi_init_gpio(HSPI, 0);
 	spi_clock(HSPI, 6, 29);  // Div by 174 to get 406kbps
 //	spi_clock(HSPI, 8, 10);  // Div by 80 to get 1MBps for now
-
-	delay_ms(10);
-
-	spi_tx8(HSPI, 0x45);
 
 	// First of all read the RTC memory and check whether data is valid.
 	if (recover_settings()) {
