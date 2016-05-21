@@ -121,6 +121,11 @@ typedef struct
 #define IS_SPI_23_PERIPH(PERIPH) (((PERIPH) == SPI2) || \
                                   ((PERIPH) == SPI3))
 
+
+#define SPI_RxFIFOThreshold_HF          ((uint16_t)0x0000)
+#define SPI_RxFIFOThreshold_QF          ((uint16_t)0x1000)
+#define SPI_CR2_FRXTH             (1 << 12) /* Bit 12: FIFO reception threshold */
+
 /** @defgroup SPI_data_direction 
   * @{
   */
@@ -466,6 +471,7 @@ FlagStatus SPI_I2S_GetFlagStatus(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG);
 void SPI_I2S_ClearFlag(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG);
 ITStatus SPI_I2S_GetITStatus(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT);
 void SPI_I2S_ClearITPendingBit(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT);
+void SPI_RxFIFOThresholdConfig(SPI_TypeDef* SPIx, uint16_t SPI_RxFIFOThreshold);
 
 #ifdef __cplusplus
 }

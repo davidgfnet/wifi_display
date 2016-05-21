@@ -34,26 +34,23 @@ void initHW() {
 
 	// Disable the fucking JTAG!
 	GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE);
+	GPIO_PinRemapConfig(GPIO_Remap_SPI1, ENABLE);
 
-	// Configure PB3 (LED)
-	GPIO_InitTypeDef GPIO_InitStructure;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
-	GPIO_Init(GPIOB, &GPIO_InitStructure);
+	//GPIO_PinRemapConfig(GPIO_FullRemap_USART3, DISABLE);
+	//GPIO_PinRemapConfig(GPIO_PartialRemap_USART3, ENABLE);
 }
 
 void sync_blink() {
 	// Some blink
 	int i;
 	GPIO_SetBits(GPIOB, GPIO_Pin_3);
-	for (i = 0; i < 3000000; i++);
+	for (i = 0; i < 3000000; i++) { asm volatile(""); }
 	GPIO_ResetBits(GPIOB, GPIO_Pin_3);
-	for (i = 0; i < 3000000; i++);
+	for (i = 0; i < 3000000; i++) { asm volatile(""); }
 	GPIO_SetBits(GPIOB, GPIO_Pin_3);
-	for (i = 0; i < 3000000; i++);
+	for (i = 0; i < 3000000; i++) { asm volatile(""); }
 	GPIO_ResetBits(GPIOB, GPIO_Pin_3);
-	for (i = 0; i < 3000000; i++);
+	for (i = 0; i < 3000000; i++) { asm volatile(""); }
 }
 
 const void * image_table[8] =
@@ -68,21 +65,51 @@ const void * image_table[8] =
 	invalid_image
 };
 
-unsigned char scratch[200*600] __attribute__((section(".extdata"), used));
+unsigned char scratch[60*1024]; // __attribute__((section(".extdata"), used));
+
+void SPI_Initialize() {
+	// Configure PB3 & PB5 for SPI slave
+	GPIO_InitTypeDef GPIO_InitStructure;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3 | GPIO_Pin_5;
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
+
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB | RCC_APB2Periph_AFIO | RCC_APB2Periph_SPI1, ENABLE);
+
+	SPI_InitTypeDef SPI_InitStructure;
+	SPI_StructInit(&SPI_InitStructure);
+	SPI_I2S_DeInit(SPI1);
+
+	/* SPI1 Config */
+	SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+	SPI_InitStructure.SPI_Mode = SPI_Mode_Slave;
+	SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
+	SPI_InitStructure.SPI_CPOL = SPI_CPOL_High;
+	SPI_InitStructure.SPI_CPHA = SPI_CPHA_2Edge;
+	SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
+	SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_LSB;
+
+	SPI_RxFIFOThresholdConfig(SPI1, SPI_RxFIFOThreshold_QF);
+  
+	/* Configure SPI1 && enable */
+	SPI_Init(SPI1, &SPI_InitStructure);
+	SPI_Cmd(SPI1, ENABLE);
+}
 
 int main() {
 	// Init HW for the micro
 	initHW();
 
-	FSMC_SRAM_Init();
+	// Fuckin SRAM memory has stopped working
+	// That means only 60KB RAM, either B/W images (1bit) or compressed images!
+	//FSMC_SRAM_Init();
 
-	USART1_Init();
+	SPI_Initialize();
 
 	// Wait for the first byte, that tells us what to do:
-	while(USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == RESET);
-	unsigned char cmd = USART_ReceiveData(USART1);
-
-	sync_blink(); // Received first byte!
+	while(SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_RXNE) == RESET);
+	unsigned char cmd = SPI_I2S_ReceiveData(SPI1);
 
 	// Bit   7 defines direction hint (which can be ignored by the device)
 	// Bit   6 tells whether to show a predefined picture (0) or to load a picture (1)
@@ -100,15 +127,13 @@ int main() {
 		unsigned int spointer = 0;
 		while (spointer < sizeof(scratch)) {
 			// Read buffer to scratch!
-			while(USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == RESET) {
-				//__WFE();
-			}
-			scratch[spointer++] = USART_ReceiveData(USART1);
+			while(SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_RXNE) == RESET) { /*__WFE(); */ }
+			scratch[spointer++] = SPI_I2S_ReceiveData(SPI1);
 		}
 	}
 	else {
-		// Decompress internal image
-		image_decode(image_table[imageidx], scratch);
+		// Copy the internal compressed image
+		memcpy(scratch, image_table[imageidx], sizeof(scratch));
 	}
 
 	// Initialize tables (according to direction)
@@ -116,16 +141,10 @@ int main() {
 
 	// Power ON, draw and OFF again!
 	einkd_PowerOn();
-	einkd_refresh(scratch);
+	einkd_refresh_compressed(scratch);
 	einkd_PowerOff();
 
-	// Send ACK back?
-	// USART_SendData(USART1, (uint8_t) ch);
-
-	// Notify update!
-	sync_blink();
-
-	USART1_DeInit();
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO | RCC_APB2Periph_SPI1, DISABLE);
 	einkd_deinit();
 
 	// Turn ourselves OFF, hopefully save some power before final power gate off

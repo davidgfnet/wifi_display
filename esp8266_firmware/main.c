@@ -7,6 +7,7 @@
 #include "user_interface.h"
 #include "user_config.h"
 #include "uart_register.h"
+#include "spi.h"
 
 #include "httpd.h"
 
@@ -32,13 +33,13 @@ void ICACHE_FLASH_ATTR put_back_to_sleep() {
 
 void ICACHE_FLASH_ATTR power_gate_screen(int enable) {
 	// Set GPIO2 to output mode
-	PIN_FUNC_SELECT(PERIPHS_IO_MUX_MTMS_U, FUNC_GPIO14);
+	PIN_FUNC_SELECT(PERIPHS_IO_MUX_MTDI_U, FUNC_GPIO12);
 
 	// Set GPIO2 high!
 	if (enable)
-		gpio_output_set(BIT14, 0, BIT14, 0);
+		gpio_output_set(BIT12, 0, BIT12, 0);
 	else
-		gpio_output_set(0, BIT14, BIT14, 0);
+		gpio_output_set(0, BIT12, BIT12, 0);
 }
 
 enum ScreenCommand {
@@ -75,7 +76,9 @@ void ICACHE_FLASH_ATTR screen_update(unsigned char screen_id) {
 	delay_ms(150);
 
 	// Send the command through the UART
-	uart_tx_one_char(screen_id, 0);
+	//uart_tx_one_char(screen_id, 0);
+	for (int i = 0; i < 10; i++)
+		spi_tx8(HSPI, screen_id);
 
 	// Wait around 4s for it to display the image properly
 	delay_ms(3500);
@@ -88,7 +91,8 @@ void ICACHE_FLASH_ATTR data_received( void *arg, char *pdata, unsigned short len
 	struct espconn *conn = arg;
 	
 	while (len--) {
-		uart_tx_one_char(*pdata++, 0);
+		//uart_tx_one_char(*pdata++, 0);
+		spi_tx8(HSPI, *pdata++);
 		if (!(len & 4095))
 			system_soft_wdt_feed();
 	}
@@ -109,7 +113,8 @@ void ICACHE_FLASH_ATTR tcp_connected(void *arg)
 	UART_ResetFifo(0);
 	power_gate_screen(1);
 	delay_ms(150);
-	uart_tx_one_char(0x40, 0);
+	//uart_tx_one_char(0x40, 0);
+	spi_tx8(HSPI, 0x40);
 
 	char buffer[256];
 	os_sprintf(buffer, "GET %s HTTP/1.1\r\nHost: %s\r\nConnection: close\r\n\r\n", conf_path, conf_hostn);
@@ -364,6 +369,17 @@ void ICACHE_FLASH_ATTR user_init( void ) {
 	// Use GPIO2 as UART0 output as well :)
 	PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO2_U, FUNC_U0TXD_BK);
 
+	// SPI setup! Ready to go!
+	spi_init(HSPI);
+	spi_mode(HSPI, 1, 0);
+	spi_init_gpio(HSPI, 0);
+	spi_clock(HSPI, 6, 29);  // Div by 174 to get 406kbps
+//	spi_clock(HSPI, 8, 10);  // Div by 80 to get 1MBps for now
+
+	delay_ms(10);
+
+	spi_tx8(HSPI, 0x45);
+
 	// First of all read the RTC memory and check whether data is valid.
 	if (recover_settings()) {
 		// We got some settings, now go and connect
@@ -387,6 +403,8 @@ void ICACHE_FLASH_ATTR user_init( void ) {
 		os_timer_arm(&sleep_timer, 20000, 0);
 	}
 	else {
+		os_printf("Starting web server\n");
+
 		// Start web server and wait for connections!
 		start_web_server();
 

@@ -11,6 +11,7 @@
 // If you are on a different board you might want to revisit some stuff here
 
 #include <stm32f10x/stm32f10x.h>
+#include "imgdec.h"
 
 #define EINK_STV_L  GPIO_ResetBits(GPIOF, GPIO_Pin_6);
 #define EINK_STV_H  GPIO_SetBits  (GPIOF, GPIO_Pin_6);
@@ -202,6 +203,38 @@ void einkd_refresh(const unsigned char * buffer) {
 		einkd_sendrow(linebuffer);
 	}
 }
+
+void einkd_refresh_compressed(const unsigned char * buffer) {
+	unsigned char linebuffer[200];
+	img_decoder decoder;
+
+	// Send this 8 times (using table 1)
+	for (int i = 0; i < FRAME_CLEAR_LEN; i++) {
+		einkd_scan_start();
+		for (int row = 0; row < 600; row++) {  //r5
+			for (int col = 0; col < 200; col++) {  //r6
+				linebuffer[col] = CLEAR_WHITE;
+			}
+			einkd_sendrow(linebuffer);
+		}
+		einkd_sendrow(linebuffer);
+	}
+
+	// Repeat 4 more times using table 2 :)
+	for (int i = 0; i < 4; i++) {
+		einkd_scan_start();
+		init_decoder(&decoder, buffer);
+		for (int row = 0; row < 600; row++) {  //r5
+			for (int col = 0; col < 200; col++) {  //r6
+				unsigned char b = decode_sample(&decoder);
+				linebuffer[col] = wave_table_end[b][i];
+			}
+			einkd_sendrow(linebuffer);
+		}
+		einkd_sendrow(linebuffer);
+	}
+}
+
 
 // This function computes the "wave tables" that are used as
 // lookup tables when it comes to draw a line

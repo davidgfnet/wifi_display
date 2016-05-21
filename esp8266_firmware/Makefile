@@ -6,8 +6,8 @@ LDFLAGS = -Teagle.app.v6.ld -Wl,--gc-sections -flto  -Wl,-Map,fw.map
 firmware-0x00000.bin: firmware
 	esptool.py elf2image $^
 
-firmware: main.o uart.o httpd.o
-	$(CC) -o firmware main.o uart.o httpd.o $(LDFLAGS) $(LDLIBS)
+firmware: main.o uart.o httpd.o spi.o
+	$(CC) -o firmware main.o uart.o httpd.o spi.o $(LDFLAGS) $(LDLIBS)
 
 %.o:	%.c
 	$(CC) $(CFLAGS) -c -o $@ $<

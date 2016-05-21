@@ -897,6 +897,20 @@ void SPI_I2S_ClearITPendingBit(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT)
   * @}
   */ 
 
+void SPI_RxFIFOThresholdConfig(SPI_TypeDef* SPIx, uint16_t SPI_RxFIFOThreshold)
+{
+	/* Check the parameters */
+	assert_param(IS_SPI_ALL_PERIPH(SPIx));
+	assert_param(IS_SPI_RX_FIFO_THRESHOLD(SPI_RxFIFOThreshold));
+
+	/* Clear FRXTH bit */
+	SPIx->CR2 &= (uint16_t)~((uint16_t)SPI_CR2_FRXTH);
+
+	/* Set new FRXTH bit value */
+	SPIx->CR2 |= SPI_RxFIFOThreshold;
+}
+
+
 /**
   * @}
   */ 
