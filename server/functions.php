@@ -6,6 +6,7 @@ require_once("weather.php");
 require_once("currency.php");
 require_once("stock.php");
 require_once("btc.php");
+require_once("forecast.php");
 
 function array2js($a) {
 	if (is_array($a)) {
