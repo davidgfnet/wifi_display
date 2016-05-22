@@ -5,6 +5,7 @@ require_once("provider.php");
 require_once("weather.php");
 require_once("currency.php");
 require_once("stock.php");
+require_once("btc.php");
 
 function array2js($a) {
 	if (is_array($a)) {
