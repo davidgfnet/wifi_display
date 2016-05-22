@@ -11,7 +11,7 @@ $numc = isset($_GET["nc"]) ? $_GET["nc"] : 4;
 // Render a screen
 if (isset($_GET["action"]) && isset($_GET["id"]) && $_GET["action"] == "render") {
     header('Content-type: image/svg+xml');
-	die(renderSVG($_GET["id"]));
+	die(renderSVG($_GET["id"])["svg"]);
 }
 // Render a screen
 if (isset($_GET["action"]) && isset($_GET["id"]) && $_GET["action"] == "renderpng") {
