@@ -50,19 +50,19 @@ class WeatherForecastProvider implements ServiceProvider {
 		// Gather information from OpenWeatherMap
 		global $weather_api_key;
 		$raw = file_get_contents(
-			"http://api.openweathermap.org/data/2.5/forecast/daily?cnt=".$this->ndays."&q=".$this->location."&APPID=".$weather_api_key
+			"http://api.openweathermap.org/data/2.5/forecast/daily?cnt=".($this->ndays+1)."&q=".$this->location."&APPID=".$weather_api_key
 		);
 		$weather = json_decode($raw, true);
 
 		$forecast = $weather["list"];
 
 		$daily = array();
-		$nd = count($forecast);
+		$nd = count($forecast)-1;
 		for ($i = 0; $i < $nd; $i++) {
-			$icon = $forecast[$i]["weather"][0]["icon"];
-			$dayn = date('D', $forecast[$i]["dt"]);
-			$mint = $forecast[$i]["temp"]["min"] - 273.15;
-			$maxt = $forecast[$i]["temp"]["max"] - 273.15;
+			$icon = $forecast[$i+1]["weather"][0]["icon"];
+			$dayn = date('D', $forecast[$i+1]["dt"]);
+			$mint = $forecast[$i+1]["temp"]["min"] - 273.15;
+			$maxt = $forecast[$i+1]["temp"]["max"] - 273.15;
 
 			$daily[] = sprintf(
 				'<image x="%d" y="%d" width="%d" height="%d" xlink:href="%s" />
