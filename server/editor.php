@@ -86,7 +86,7 @@
       })
       .resizable({
         preserveAspectRatio: true,
-        edges: { left: true, right: true, bottom: true, top: true }
+        edges: { left: false, right: true, bottom: true, top: false }
       })
       .on('doubletap', function (event) {
         $("#tunables_modal_body").empty();

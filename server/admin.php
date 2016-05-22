@@ -7,6 +7,19 @@
     $im = renderBMP($_GET["id"], 8, 600, 600);
     die($im);
   }
+
+  if (isset($_GET["action"]) && $_GET["action"] == "delete") {
+    $sid = str_replace (".", "", $_GET["id"]);
+    unlink("screens/".$sid);
+    die("OK");
+  }
+
+  if (isset($_GET["action"]) && $_GET["action"] == "create") {
+    $sid = str_replace (".", "", $_GET["name"]);
+    file_put_contents("screens/".$sid, '{"width":"800","height":"600","widgets":[]}');
+    die("OK");
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,6 +52,29 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script type="text/javascript">
+      function deleteScreen(sname, divid) {
+        $.ajax({
+          type: "GET",
+          url: "admin.php?action=delete&id="+sname,
+          success: function() {
+            $("#"+divid).fadeOut(300, function() { $(this).remove(); });
+          }
+        });
+      }
+
+      function createScreen() {
+        $.ajax({
+          type: "GET",
+          url: "admin.php?action=create&name="+encodeURI($("#newscreenname").val()),
+          success: function() {
+            location.reload();
+          }
+        });
+      }
+
+    </script>
   </head>
 
   <body>
@@ -70,23 +106,34 @@
           <div>
             <p>Browse your existing frames and create or edit them in your browser.</p>
           </div>
+
+          <div>
+            <input type="text" id="newscreenname" placeholder="Screen name">
+            <a href="#" onclick="createScreen()" class="btn btn-primary">Create</a>
+          </div>
+
+          <div id="alert_delete" class="alert alert-success initially_hidden" role="alert">
+            <strong>Screen deleted!</strong>
+          </div>
+
           <div class="row">
             <?php
                $file_list = scandir("screens");
                foreach ($file_list as $file) {
                   if ($file[0] == '.') continue;
+               $fn = urlencode($file);
+               $fh = md5($file);
             ?>
-            <div class="col-xs-12 col-sm-4 col-md-3">
+            <div class="col-xs-12 col-sm-4 col-md-3" id="<?php echo $fh; ?>">
               <h2><?php echo $file; ?></h2>
-              <p><img class="img-responsive" src="admin.php?action=renderthumb&id=<?php echo urlencode($file); ?>"></p>
-              <a href="editor.php?id=<?php echo $file; ?>" class="btn btn-default">Edit</a>
-              <a href="" class="btn btn-default">Copy</a>
-              <a href="" class="btn btn-danger">Delete</a>
+              <p><img class="img-responsive thumbimg" src="admin.php?action=renderthumb&id=<?php echo urlencode($file); ?>"></p>
+              <a href="editor.php?id=<?php echo urlencode($file); ?>" class="btn btn-default">Edit</a>
+              <a href="#" onclick="cloneScreen('<?php echo $fn; ?>', '<?php echo $fh; ?>')" class="btn btn-default">Copy</a>
+              <a href="#" onclick="deleteScreen('<?php echo $fn; ?>', '<?php echo $fh; ?>')" class="btn btn-danger">Delete</a>
             </div>
             <?php
                }
             ?>
-
 
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->

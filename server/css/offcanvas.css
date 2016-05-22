@@ -13,6 +13,12 @@ footer {
   padding: 30px 0;
 }
 
+.thumbimg {
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
+}
+
 /*
  * Off Canvas
  * --------------------------------------------------
