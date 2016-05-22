@@ -208,6 +208,13 @@
           $('#tunables_modal').modal('hide');
         });
 
+        // Widget delete!
+        $('#modal_del').click(function(){
+          $('[data-i^='+edit_object + ']').remove();
+          delete instance_array[edit_object];
+          $('#tunables_modal').modal('hide');
+        });
+
         // Screen save!
         $('#save_button').click(function(){
           // Save properties!
@@ -451,6 +458,7 @@
               
             </div>
             <div class="modal-footer">
+              <button type="button" class="btn btn-danger" id="modal_del">Delete</button>
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary" id="modal_save">Save changes</button>
             </div>
