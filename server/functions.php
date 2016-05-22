@@ -123,4 +123,60 @@ function renderBMP($id, $numc, $maxwidth, $maxheight) {
 	return $im;
 }
 
+
+// RLE compression:
+// Chunk header is one byte, decoded means:
+//  0XXX XXXX: The following byte is repeated XXXXXXX times + 1 (from 1 to 128)
+//  1XXX XXXX: Just copy the following XXXXXXX+1 bytes (means the pattern is not compressible)
+
+function countb($start, $buf) {
+	$ref = $buf[$start];
+	$i = $start;
+	while ($i < count($buf) && $buf[$i] == $ref)
+		$i++;
+
+	return $i - $start;
+}
+
+// Function that performs RLE compression!
+
+function img_compress($buf) {
+	$outb = array();
+	$i = 0;
+	$accum = array();
+	while ($i < count($buf)) {
+		$bytec = min(countb($i, $buf), 128);
+		$encoderle = ($bytec > 3);
+
+		if ($encoderle || count($accum) == 128) {
+			// Flush noncompressable pattern
+			if (count($accum) > 0) {
+				$b = count($accum) - 1;
+				$b |= 0x80;
+				$outb[] = $b;
+				$outb = array_merge($outb, $accum);
+				$accum = array();
+			}
+		}
+
+		if ($encoderle) {
+			# Emit a runlegth
+			$outb[] = $bytec-1;
+			$outb[] = $buf[$i];
+			$i += $bytec;
+		} else {
+			$accum[] = $buf[$i];
+			$i++;
+		}
+	}
+
+	# Make sure to flush it all
+	$outb = array_merge($outb, $accum);
+
+	while (count($outb) < 60*1024)
+		$outb[] = 0;
+
+	return $outb;
+}
+
 ?>

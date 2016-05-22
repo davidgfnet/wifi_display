@@ -26,11 +26,13 @@ if (isset($_GET["action"]) && isset($_GET["id"]) && $_GET["action"] == "renderei
 	$im = renderBMP($_GET["id"], $numc, 0, 0);
 
     header('Content-type: application/octet-stream');
+    header('Content-Length: 61440');
 
 	// Calculate the bit packing for the number of colors.
 	$numbits = intval(log10($numc)/log10(2));
 	$nppb = 8 / $numbits; // Number of pixels per byte!
 
+	$bppimage = array();
 	$it = $im->getPixelIterator();
 	foreach ($it as $row => $pixels) {
 		$orow = array();
@@ -45,9 +47,16 @@ if (isset($_GET["action"]) && isset($_GET["id"]) && $_GET["action"] == "renderei
 			$color = 0;
 			for ($j = 0; $j < $nppb; $j++)
 				$color = ($color << $numbits) | $orow[$i+$j];
-			echo chr($color);
+			//echo chr($color);
+			$bppimage[] = $color;
 		}
 	}
+
+	// Compress image!
+	$bppimage = img_compress($bppimage);
+	foreach ($bppimage as $b)
+		echo chr($b);
+
 	die();
 }
 

@@ -87,6 +87,32 @@ void ICACHE_FLASH_ATTR screen_update(unsigned char screen_id) {
 
 void ICACHE_FLASH_ATTR data_received( void *arg, char *pdata, unsigned short len) {
 	struct espconn *conn = arg;
+
+	static char screen_on = 0;
+	if (!screen_on) {
+		screen_on = 1;
+
+		// Prepare screen! Tell image is coming!
+		power_gate_screen(1);
+		delay_ms(50);
+		spi_tx8(HSPI, 0x40);
+	}
+
+	// Scan through the data to strip headers!
+	static char header_found = 0;
+	static char lastc[4] = {0};
+	while (len && !header_found) {
+		lastc[0] = lastc[1];
+		lastc[1] = lastc[2];
+		lastc[2] = lastc[3];
+		lastc[3] = *pdata;
+		if (memcmp(lastc, "\r\n\r\n", 4) == 0) {
+			header_found = 1;
+		}
+
+		pdata++;
+		len--;
+	}
 	
 	while (len--) {
 		spi_tx8(HSPI, *pdata++);
@@ -103,14 +129,6 @@ void ICACHE_FLASH_ATTR tcp_connected(void *arg)
 	
 	os_printf( "%s\n", __FUNCTION__ );
 	espconn_regist_recvcb(conn, data_received);
-
-	// Prepare screen!
-	//os_install_putc1((void *)nullwr);
-	//system_set_os_print(0);
-	UART_ResetFifo(0);
-	power_gate_screen(1);
-	delay_ms(150);
-	spi_tx8(HSPI, 0x40);
 
 	char buffer[256];
 	os_sprintf(buffer, "GET %s HTTP/1.1\r\nHost: %s\r\nConnection: close\r\n\r\n", conf_path, conf_hostn);
@@ -158,7 +176,9 @@ void ICACHE_FLASH_ATTR dns_done_cb( const char *name, ip_addr_t *ipaddr, void *a
 		conn->type = ESPCONN_TCP;
 		conn->state = ESPCONN_NONE;
 		conn->proto.tcp = &host_tcp;
+		espconn_regist_time(&host_tcp, 30, 0);
 		conn->proto.tcp->local_port = espconn_port();
+		conn->proto.tcp->remote_port = conf_port;
 		conn->proto.tcp->remote_port = conf_port;
 		os_memcpy( conn->proto.tcp->remote_ip, &ipaddr->addr, 4 );
 
@@ -369,8 +389,8 @@ void ICACHE_FLASH_ATTR user_init( void ) {
 	spi_init(HSPI);
 	spi_mode(HSPI, 1, 1);
 	spi_init_gpio(HSPI, 0);
-	spi_clock(HSPI, 6, 29);  // Div by 174 to get 406kbps
-//	spi_clock(HSPI, 8, 10);  // Div by 80 to get 1MBps for now
+//	spi_clock(HSPI, 6, 29);  // Div by 174 to get 406kbps
+	spi_clock(HSPI, 1, 20);  // Div by 20 to get 4MBps for now
 
 	// First of all read the RTC memory and check whether data is valid.
 	if (recover_settings()) {
@@ -389,10 +409,10 @@ void ICACHE_FLASH_ATTR user_init( void ) {
 		// Connect to the server, get some stuff and process it!
 		wifi_set_event_handler_cb(wifi_callback);
 
-		// To prevent battery going nuts, add a failback timer of 20 seconds
+		// To prevent battery going nuts, add a failback timer of 30 seconds
 		// which should be more than enough for the whole process
 		os_timer_setfn(&sleep_timer, processing_timeout, (void*)0);
-		os_timer_arm(&sleep_timer, 20000, 0);
+		os_timer_arm(&sleep_timer, 30000, 0);
 	}
 	else {
 		os_printf("Starting web server\n");
