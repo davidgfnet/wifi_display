@@ -32,5 +32,8 @@ Schematics
 
 I'll update this with some schematics. The ESP uses a GPIO to power gate the STM32 (off by default) which at its turn uses three other GPIOs to power gate the various screen voltage rails.
 
+GDE043A2
+--------
 
+This thing uses the Good Diplay device codenamed GDE043A2, you may find stuff googling the web. The main issue though is that there is little support and the datasheet doesn't explain a thing, check gde043a2.c to see how the driver actually works. It seems GDE060BA works all much the same (they seem to be the same device with slightly different pinouts and screen sizes, but same resolution and probably same driver).
 
