@@ -20,6 +20,13 @@
     die("OK");
   }
 
+  if (isset($_GET["action"]) && $_GET["action"] == "clone") {
+    $sid = str_replace (".", "", $_GET["refname"]);
+    $nid = str_replace (".", "", $_GET["newname"]);
+    file_put_contents("screens/".$nid, file_get_contents("screens/".$sid));
+    die("OK");
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,6 +53,8 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="js/ie-emulation-modes-warning.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -73,6 +82,25 @@
           }
         });
       }
+
+      var refclone;
+      function cloneScreen(vname, vhash) {
+        $('#clone_modal').modal('show');
+        refclone = vname;
+      }
+
+      $(document).ready(function() {
+        // Clone screen!
+        $('#modal_clone_button').click(function(){
+          $.ajax({
+            type: "GET",
+            url: "admin.php?action=clone&refname="+encodeURI(refclone)+"&newname="+encodeURI($('#clone_name').val()),
+            success: function() {
+              location.reload();
+            }
+          });
+        });
+      });
 
     </script>
   </head>
@@ -146,13 +174,35 @@
         <p>&copy; 2016 David Guillen Fandos</p>
       </footer>
 
+      <div class="modal fade" id="clone_modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Clone screen</h4>
+            </div>
+
+            <div class="modal-body" id="tunables_modal_body">
+              <div class="form-group">
+                <label for="clone_name">Screen name</label>
+                <input class="form-control input-lg" type="text" id="clone_name" name="clone_name" />
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="modal_clone_button">Clone</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
     </div><!--/.container-->
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
     <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
