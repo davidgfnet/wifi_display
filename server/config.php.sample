@@ -1,7 +1,13 @@
 <?php
 
-// Add your openweathermap key here
-global $weather_api_key;
-$weather_api_key = "";
+class GlobalConfig {
+
+	// Global credentials
+	public static $admin_pass = "";
+
+	// Add your openweathermap key here
+	public static $weather_api_key = "";
+
+};
 
 ?>

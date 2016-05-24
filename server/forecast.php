@@ -48,9 +48,8 @@ class WeatherForecastProvider implements ServiceProvider {
 
     public function render() {
 		// Gather information from OpenWeatherMap
-		global $weather_api_key;
 		$raw = file_get_contents(
-			"http://api.openweathermap.org/data/2.5/forecast/daily?cnt=".($this->ndays+1)."&q=".$this->location."&APPID=".$weather_api_key
+			"http://api.openweathermap.org/data/2.5/forecast/daily?cnt=".($this->ndays+1)."&q=".$this->location."&APPID=".GlobalConfig::$weather_api_key
 		);
 		$weather = json_decode($raw, true);
 

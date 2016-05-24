@@ -44,8 +44,7 @@ class WeatherProvider implements ServiceProvider {
 
     public function render() {
 		// Gather information from OpenWeatherMap
-		global $weather_api_key;
-		$raw = file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=".$this->location."&APPID=".$weather_api_key);
+		$raw = file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=".$this->location."&APPID=".GlobalConfig::$weather_api_key);
 		$weather = json_decode($raw, true);
 
 		$icon = $weather["weather"][0]["icon"];
