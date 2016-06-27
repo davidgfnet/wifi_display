@@ -83,8 +83,8 @@ class WeatherProvider implements ServiceProvider {
 		"11d" => "thunder",
 		"11n" => "thunder",
 		"13d" => "snow",
-		"13d" => "snow",
-		"50n" => "day_mist",
+		"13n" => "snow",
+		"50d" => "day_mist",
 		"50n" => "night_mist",
 	);
 };
