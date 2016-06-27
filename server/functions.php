@@ -131,52 +131,58 @@ function renderBMP($id, $numc, $maxwidth, $maxheight) {
 //  0XXX XXXX: The following byte is repeated XXXXXXX times + 1 (from 1 to 128)
 //  1XXX XXXX: Just copy the following XXXXXXX+1 bytes (means the pattern is not compressible)
 
-function countb($start, $buf) {
-	$ref = $buf[$start];
-	$i = $start;
-	while ($i < count($buf) && $buf[$i] == $ref)
-		$i++;
-
-	return $i - $start;
-}
-
 // Function that performs RLE compression!
 
 function img_compress($buf) {
-	$outb = array();
+	// Array to hold the number of repeated elements starting from that position
+	$reps = array_fill(0, count($buf), 0);
+	$prev = -1;
+	for ($i = count($buf)-1; $i >= 0; $i--) {
+		if ($buf[$i] != $prev)
+			$ctr = 0;
+		$ctr += 1;
+
+		$reps[$i] = $ctr;
+		$prev = $buf[$i];
+	}
+
+	$outb = array_fill(0, 60*1024, 0);
+	$outp = 0;
 	$i = 0;
-	$accum = array();
+	$accum = 0;
 	while ($i < count($buf)) {
-		$bytec = min(countb($i, $buf), 128);
+		$bytec = min($reps[$i], 128);
 		$encoderle = ($bytec > 3);
 
-		if ($encoderle || count($accum) == 128) {
+		if ($encoderle || $accum == 128) {
 			// Flush noncompressable pattern
-			if (count($accum) > 0) {
-				$b = count($accum) - 1;
+			if ($accum > 0) {
+				$b = $accum - 1;
 				$b |= 0x80;
-				$outb[] = $b;
-				$outb = array_merge($outb, $accum);
-				$accum = array();
+				$outb[$outp - $accum - 1] = $b;
+				$accum = 0;
 			}
 		}
 
 		if ($encoderle) {
 			# Emit a runlegth
-			$outb[] = $bytec-1;
-			$outb[] = $buf[$i];
+			$outb[$outp++] = $bytec-1;
+			$outb[$outp++] = $buf[$i];
 			$i += $bytec;
 		} else {
-			$accum[] = $buf[$i];
-			$i++;
+			if ($accum == 0)
+				$outp++;
+			$outb[$outp++] = $buf[$i++];
+			$accum++;
 		}
 	}
 
 	# Make sure to flush it all
-	$outb = array_merge($outb, $accum);
-
-	while (count($outb) < 60*1024)
-		$outb[] = 0;
+	if ($accum > 0) {
+		$b = $accum - 1;
+		$b |= 0x80;
+		$outb[$outp - $accum - 1] = $b;
+	}
 
 	return $outb;
 }
