@@ -2,6 +2,9 @@
 
 require_once("functions.php");
 
+// Make sure it's private network only
+checkUserAuth(false);
+
 function mapColor($color, $numc) {
 	return intval($color / intval(256/$numc));
 }

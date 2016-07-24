@@ -8,6 +8,9 @@ class GlobalConfig {
 	// Add your openweathermap key here
 	public static $weather_api_key = "";
 
+        // If set to true, access is only allowed to private IP address (not via public Internet)
+        public static $private_ip_only = false;
+
 };
 
 ?>
