@@ -1,6 +1,7 @@
 <?php
 
 require_once("config.php");
+require_once("auth.php");
 require_once("provider.php");
 require_once("weather.php");
 require_once("currency.php");
