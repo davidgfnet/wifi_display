@@ -95,36 +95,22 @@ function renderSVG($id) {
 
 function renderBMP($id, $numc, $maxwidth, $maxheight) {
 	// Render image
-	$data = renderSVG($_GET["id"]);
+	$data = renderSVG($id);
 	$svg = $data["svg"];
-	// Convert to PNG and scale
+	$svgf = tempnam("/tmp", "svgconv");
+	file_put_contents($svgf, $svg);
+	// Call convert
+	exec("rsvg-convert -o " . $svgf . ".png " . $svgf);
+
 	$im = new Imagick();
-	$im->readImageBlob($svg);
+	$im->readImageFile(fopen($svgf.".png", "rb"));
 	$im->setImageFormat("png24");
-
-	// Apply max sizes
-	$width = $data["width"];
-	$height = $data["height"];
-	if ($width > $maxwidth && $maxwidth>0) {
-		$ar = $width/$height;
-		$width = $maxwidth;
-		$height = $width / $ar;
-	}
-	if ($height > $maxheight && $maxheight>0) {
-		$ar = $width/$height;
-		$height = $maxheight;
-		$width = $height * $ar;
-	}
-
-	$im->resizeImage($width, $height, imagick::FILTER_LANCZOS, 1);
-
-	// Set to gray
 	$im->transformImageColorspace(imagick::COLORSPACE_GRAY);
 	$im->posterizeImage($numc, imagick::DITHERMETHOD_NO);
-
-	if (isset($_GET["inv"]))
-		$im->negateImage(false);
-
+	$im->setImageBackgroundColor('white');
+	$im = $im->flattenImages(); 
+	unlink($svgf);
+	unlink($svgf.".png");
 	return $im;
 }
 
