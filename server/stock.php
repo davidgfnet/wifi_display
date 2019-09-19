@@ -44,11 +44,12 @@ class StockProvider implements ServiceProvider {
 
     public function render() {
 		// Gather information from yahoo
-		$raw = file_get_contents("http://finance.yahoo.com/webservice/v1/symbols/".$this->stock."/quote?format=json");
+		$raw = file_get_contents("http://finance.google.com/finance/info?client=ig&q=".$this->stock);
+		$raw = str_replace("//", "", $raw);
 		$info = json_decode($raw, true);
 
-		$name  = $info["list"]["resources"][0]["resource"]["fields"]["symbol"];
-		$price = $info["list"]["resources"][0]["resource"]["fields"]["price"];
+		$name  = $info[0]["t"];
+		$price = $info[0]["l"];
 
 		// Generate an SVG image out of this 
 		return sprintf(

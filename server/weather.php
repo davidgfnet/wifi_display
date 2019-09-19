@@ -58,7 +58,7 @@ class WeatherProvider implements ServiceProvider {
                 <text text-anchor="end" x="%d" y="%d" fill="black" style="font-size: %dpx; font-style: %s; font-weight: bold;">%d°</text>
 			</svg>', $this->width, $this->height,
 				0.03 * $this->width, 0.05 * $this->height,
-				0.45 * $this->width, 0.9 * $this->height,
+				0.35 * $this->width, 0.9 * $this->height,
 				ProviderAux::embedSVG("resources/".$this->imgmap[$icon].".svg"),
 				$this->width, ($this->font_size/3.0 + 0.5) * $this->height, $this->font_size * $this->height,
 				$this->font_family,
