@@ -19,12 +19,14 @@ class SBBTimesProvider implements ServiceProvider {
 		$this->height = 200;
 		$this->font_size = 0.65;
 		$this->font_family = "Arial";
+		$this->strformat = "{time} {dest} [{train}]";
 	}
 
     public function getTunables() {
 		return array(
 			"station"    => array("type" => "fnum", "display" => "Station ID", "value" => $this->station),
 			"numdep"    => array("type" => "fnum", "display" => "Board size", "value" => $this->numdep),
+			"format"    => array("type" => "text", "display" => "Display format", "value" => $this->strformat),
 			"font_family" => array("type" => "text", "display" => "Font Family", "value" => $this->font_family),
 			"font_size"   => array("type" => "fnum", "display" => "Font Size", "value" => $this->font_size)
 		);
@@ -58,9 +60,13 @@ class SBBTimesProvider implements ServiceProvider {
 			$where = $info["stationboard"][$i]["to"];
 			$attime = date('G:i', $info["stationboard"][$i]["stop"]["departureTimestamp"]);
 
+			$entrystr = str_replace($this->strformat, "{time}", $attime);
+			$entrystr = str_replace($entrystr, "{dest}", $where);
+			$entrystr = str_replace($entrystr, "{train}", $zug);
+
 			$ret .= sprintf(
-				'<text x="%d" y="%d" fill="black" style="font-size: %dpx; font-style: %s; font-weight: bold;">%s %s [%s]</text>',
-				0, $y, $this->font_size * $this->height, $this->font_family, $attime, $where, $zug);
+				'<text x="%d" y="%d" fill="black" style="font-size: %dpx; font-style: %s; font-weight: bold;">%s</text>',
+				0, $y, $this->font_size * $this->height, $this->font_family, $entrystr);
 			$y += $this->font_size * $this->height;
 		}
 
