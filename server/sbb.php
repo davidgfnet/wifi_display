@@ -26,7 +26,7 @@ class SBBTimesProvider implements ServiceProvider {
 		return array(
 			"station"    => array("type" => "fnum", "display" => "Station ID", "value" => $this->station),
 			"numdep"    => array("type" => "fnum", "display" => "Board size", "value" => $this->numdep),
-			"format"    => array("type" => "text", "display" => "Display format", "value" => $this->strformat),
+			"strformat"    => array("type" => "text", "display" => "Display format", "value" => $this->strformat),
 			"font_family" => array("type" => "text", "display" => "Font Family", "value" => $this->font_family),
 			"font_size"   => array("type" => "fnum", "display" => "Font Size", "value" => $this->font_size)
 		);
