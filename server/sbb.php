@@ -60,9 +60,9 @@ class SBBTimesProvider implements ServiceProvider {
 			$where = $info["stationboard"][$i]["to"];
 			$attime = date('G:i', $info["stationboard"][$i]["stop"]["departureTimestamp"]);
 
-			$entrystr = str_replace($this->strformat, "{time}", $attime);
-			$entrystr = str_replace($entrystr, "{dest}", $where);
-			$entrystr = str_replace($entrystr, "{train}", $zug);
+			$entrystr = str_replace("{time}", $attime, $this->strformat);
+			$entrystr = str_replace("{dest}", $where, $entrystr);
+			$entrystr = str_replace("{train}", $zug, $entrystr);
 
 			$ret .= sprintf(
 				'<text x="%d" y="%d" fill="black" style="font-size: %dpx; font-style: %s; font-weight: bold;">%s</text>',
