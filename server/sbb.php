@@ -34,6 +34,7 @@ class SBBTimesProvider implements ServiceProvider {
     public function setTunables($v) {
 		$this->station = $v["station"]["value"];
 		$this->numdep = $v["numdep"]["value"];
+		$this->strformat = $v["strformat"]["value"];
 		$this->font_family = $v["font_family"]["value"];
 		$this->font_size = $v["font_size"]["value"];
 	}
