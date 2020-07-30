@@ -4,7 +4,7 @@ E-ink wifi display
 
 This project contains the software bits for a e-ink display I created.
 
-You might find some info at my website: https://davidgf.net/page/41/e-ink-wifi-display
+You might find some info at my website: https://www.davidgf.net/2016/06/12/wifi_display/
 
 Contents
 --------
