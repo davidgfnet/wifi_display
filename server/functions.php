@@ -11,9 +11,6 @@ require_once("stock.php");
 require_once("btc.php");
 require_once("forecast.php");
 
-error_reporting(-1);
-ini_set('display_errors', 'On');
-
 function array2js($a) {
 	if (is_array($a)) {
 		$ret = "";
