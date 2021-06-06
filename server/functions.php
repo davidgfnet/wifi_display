@@ -11,6 +11,9 @@ require_once("stock.php");
 require_once("btc.php");
 require_once("forecast.php");
 
+error_reporting(-1);
+ini_set('display_errors', 'On');
+
 function array2js($a) {
 	if (is_array($a)) {
 		$ret = "";
@@ -55,7 +58,6 @@ class Providers {
 // Image rendering stuff
 
 function renderSVG($id) {
-	header('Content-type: image/svg+xml');
 
 	// Read the screen and parse it as JSON
 	$scr = file_get_contents("screens/".$id);
@@ -108,7 +110,7 @@ function renderBMP($id, $numc, $maxwidth, $maxheight) {
 	$im->transformImageColorspace(imagick::COLORSPACE_GRAY);
 	$im->posterizeImage($numc, imagick::DITHERMETHOD_NO);
 	$im->setImageBackgroundColor('white');
-	$im = $im->flattenImages(); 
+	$im = $im->mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
 	unlink($svgf);
 	unlink($svgf.".png");
 	return $im;

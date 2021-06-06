@@ -1,0 +1,16 @@
+---
+    version: "3"
+    networks: 
+      web: 
+        driver: "bridge"
+    services: 
+      wifi-display:
+        build:
+          context: .
+          dockerfile: Dockerfile
+        volumes:
+          - "./server:/var/www/html"
+        ports: 
+          - "80:80"
+        networks: 
+          - "web"
