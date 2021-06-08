@@ -131,7 +131,7 @@ void ICACHE_FLASH_ATTR tcp_connected(void *arg)
 	espconn_regist_recvcb(conn, data_received);
 
 	char buffer[256];
-	os_sprintf(buffer, "GET %s HTTP/1.1\r\nHost: %s\r\nConnection: close\r\n\r\n", conf_path, conf_hostn);
+	os_sprintf(buffer, "GET %s HTTP/1.0\r\nHost: %s\r\nConnection: close\r\n\r\n", conf_path, conf_hostn);
 	
 	espconn_send(conn, buffer, os_strlen(buffer));
 }
@@ -378,7 +378,7 @@ void ICACHE_FLASH_ATTR user_init( void ) {
 	gpio_init();
 
 	// Set UART0 to high speed!
-	uart_div_modify( 0, UART_CLK_FREQ / ( 460800 ) );  // 921600
+	uart_div_modify( 0, UART_CLK_FREQ / ( 115200 ) ); // More decent than 460800 ) );  // 921600
 
 	os_printf("Booting...\n");
 
