@@ -50,7 +50,7 @@
     <![endif]-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="//code.interactjs.io/v1.2.6/interact.min.js"></script>
+    <script src="//cdn.jsdelivr.net/interact.js/1.2.6/interact.min.js"></script>
 
     <script type="text/javascript">
 

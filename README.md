@@ -27,6 +27,19 @@ To reuse the display driver for another board, just redefine the macros to point
 
 The server should be copied to a PHP enabled server, create a config.php and fill it. Also create a screens/ dir and chmod it to be world readable/writtable.
 
+How to run with docker
+----------------------
+
+If you have docker-compose installed, you can do a simple
+```
+docker-compose up --build
+````
+to start the server. To run it with docker directly you can run
+```
+docker build -t php-im/wifi-display . 
+docker run  -p 80:80  -v "$PWD/server":/var/www/html php-im/wifi-display
+```
+
 Schematics
 ----------
 
