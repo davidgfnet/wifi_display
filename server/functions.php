@@ -113,6 +113,27 @@ function renderBMP($id, $numc, $maxwidth, $maxheight) {
 	return $im;
 }
 
+function renderJPG($id, $numc, $maxwidth, $maxheight) {
+	// Render image
+	$data = renderSVG($id);
+	$svg = $data["svg"];
+	$svgf = tempnam("/tmp", "svgconv");
+	file_put_contents($svgf, $svg);
+	// Call convert
+	exec("rsvg-convert -o " . $svgf . ".png " . $svgf);
+
+	$im = new Imagick();
+	$im->readImageFile(fopen($svgf.".png", "rb"));
+	$im->setImageFormat("jpeg");
+	$im->transformImageColorspace(imagick::COLORSPACE_CMYK);
+	//$im->posterizeImage($numc, imagick::DITHERMETHOD_NO);
+	$im->setImageBackgroundColor('white');
+	$im = $im->mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
+	unlink($svgf);
+	unlink($svgf.".png");
+	return $im;
+}
+
 
 // RLE compression:
 // Chunk header is one byte, decoded means:

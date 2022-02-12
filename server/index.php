@@ -24,6 +24,13 @@ if (isset($_GET["action"]) && isset($_GET["id"]) && $_GET["action"] == "renderpn
 	die($im);
 }
 
+if (isset($_GET["action"]) && isset($_GET["id"]) && $_GET["action"] == "renderjpg") {
+	$im = renderJPG($_GET["id"], $numc, 0, 0);
+
+    header('Content-type: image/png');
+	die($im);
+}
+
 // Render a screen
 if (isset($_GET["action"]) && isset($_GET["id"]) && $_GET["action"] == "rendereink") {
 	$im = renderBMP($_GET["id"], $numc, 0, 0);
